@@ -26,9 +26,9 @@ class Parser {
             throw new EmptyStringError("Stringa vuota")
         }
         const tempString = Parser.ReplaceAll(string);
-        console.log("temp string",tempString);
+        // console.log("temp string",tempString);
         const tempArray = Parser.Splitter(tempString);
-        console.log("temp array",tempArray);
+        // console.log("temp array",tempArray);
         let newArray = []
         for (let i = 0; i < tempArray.length; i++) {
             let intArray = Parser.checkParse(tempArray[i])
@@ -36,7 +36,7 @@ class Parser {
 
         }
         //const newArray = Parser.checkParse(tempArray);
-        console.log("new array",newArray);
+        // console.log("new array",newArray);
         return newArray;
     }
 
@@ -49,7 +49,7 @@ class Parser {
     }
 
     static Splitter(string) {
-        let tempString = string.split("\r\n");
+        let tempString = string.split("\n");
         let resultArray = [];
         for (let i = 0; i < tempString.length; i++) {
             let tempArray = tempString[i].split("; ")
