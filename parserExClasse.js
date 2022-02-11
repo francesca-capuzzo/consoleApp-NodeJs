@@ -4,7 +4,6 @@ class ParserClasse{
         const cleanCsv = this.removeSpaces(this.changeCommaWithDot(csv));
         const lines = this.splitByLine(cleanCsv);
         let array = [];
-
         for (const line of lines) {
             const lineArray = this.parseLine(line);
             array = array.concat(lineArray);
@@ -12,13 +11,38 @@ class ParserClasse{
         return array;
     }
 
+
+
     static parseCsvToMatrix(csv){//--> seconda funzione per il secondo caso di imput (matrice)
-
+        const cleanCsv = this.removeSpaces(this.changeCommaWithDot(csv));
+        const lines = this.splitByLine(cleanCsv);
+        let array = [];
+        for (const line of lines) {
+            const lineArray = this.parseLine(line);
+            array.push(lineArray);
+        }
+        return array;
     }
 
-    static parseCsv(csv){// --> terza funzione per il terzo caso (più semplice di tutti)
 
-    }
+
+    // static parseCsv(csv, outputType){// --> terza funzione per il comprimere le prime due
+    //     const cleanCsv = this.removeSpaces(this.changeCommaWithDot(csv));
+    //     const lines = this.splitByLine(cleanCsv);
+    //     let array = [];
+    //     for (const line of lines) {
+    //         const lineArray = this.parseLine(line);
+    //         if(outputType == "-a"){                          //--> outputType lo inserisco poi nel readFile di appExClasse --> -a è come intendere una flag della command line (in questo caso "-a" = array)
+    //             array = array.concat(lineArray);
+    //         }else{
+    //             array.push(lineArray);
+    //         }
+    //     }
+    //     return array;
+    // }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     static parseLine(line){//--> prende ogni linea che gli passo e la parsa spezzandole sul punto e virgola
         const words = this.separateStringOnSemicolon(line);
